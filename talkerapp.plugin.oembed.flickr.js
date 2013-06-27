@@ -5,8 +5,7 @@ plugin.onMessageInsertion = function (event) {
 
   if (flickr_status_expression.test(last_href)) {
     var id = last_href.match(flickr_status_expression)[0],
-        //TODO: get JSONP since JSON wouldn't work across domain
-        url = 'http://www.flickr.com/services/oembed?format=json&url=' + window.encodeURIComponent(id) + '&callback=?';
+        url = '//www.flickr.com/services/oembed?format=json&url=' + window.encodeURIComponent(id) + '&jsoncallback=?';
     
     if (last_anchor.hasClass('transformed')) {
       return true; // Do not transform the link a second time.
